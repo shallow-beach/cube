@@ -1,2 +1,7 @@
-# cube
-creating a homepage for my website
+# usage
+
+run the following in the project directory 
+
+    npm i
+
+    npm run start
