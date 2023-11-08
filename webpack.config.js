@@ -1,11 +1,11 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // how does it know where to look?
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: './src/main.js',
   devServer: {
-    static: './dist',
+   static: './dist',
   },
   output: {
     filename: 'bundle.js',
@@ -14,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-	  title: '10.22.23',
+	  title: '11.7.23',
 	}),
   ],
   // optimization: {
