@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack serve --open --watch-options-poll" // --watch is Windows-specific
+    "start": "webpack serve --open --watch-options-poll"
   },
   "keywords": [],
   "author": "",
