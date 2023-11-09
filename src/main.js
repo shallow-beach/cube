@@ -14,7 +14,7 @@ import { createInputHandler, inputSourceInfo } from "./input";
 
 window.onload = async function () {
 
-  // The input handler
+  // createInputHandler defined in input.js 
   const inputHandler = createInputHandler(window)
 
   // The camera types
@@ -27,6 +27,7 @@ window.onload = async function () {
   // GUI parameters
   const params = {
     type: "arcball"
+    // type: "WASD"
   };
 
   const myCanvas = document.createElement("canvas");
@@ -39,8 +40,8 @@ window.onload = async function () {
   // const devicePixelRatio = window.devicePixelRatio || 1
   // myCanvas.width = myCanvas.clientWidth * devicePixelRatio
   // myCanvas.height = myCanvas.clientHeight * devicePixelRatio
-  myCanvas.width = 3000;
-  myCanvas.height = 3000;
+  myCanvas.width = 800;
+  myCanvas.height = 800;
   const presentationFormat = navigator.gpu.getPreferredCanvasFormat()
 
   context.configure({
@@ -175,7 +176,7 @@ window.onload = async function () {
       {
         view: undefined, // Assigned later
 
-        clearValue: { r: 0.5, g: 0.5, b: 0.5, a: 1.0 },
+        clearValue: { r: 0.5, g: 0.5, b: 0.5, a: 0 }, // background color
         loadOp: "clear",
         storeOp: "store"
       }
@@ -195,7 +196,8 @@ window.onload = async function () {
 
   function getModelViewProjectionMatrix(deltaTime) {
     const camera = cameras[params.type]
-    const viewMatrix = camera.update(deltaTime, inputHandler())
+    const viewMatrix = camera.update(deltaTime, inputHandler()) // so far, only use of inputHandler in main.js
+    console.log(inputHandler())
     mat4.multiply(projectionMatrix, viewMatrix, modelViewProjectionMatrix)
     return modelViewProjectionMatrix
   }
